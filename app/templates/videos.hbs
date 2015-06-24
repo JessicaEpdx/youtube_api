@@ -1,10 +1,15 @@
 {{#each vid in model}}
+<div class="row">
 
-<div style="width: 100vw; height: 100vh;">
+<div class="col-sm-1" style="float: left">
+  la la la la
+</div>
 
+<div style="width: 90vw; height: 100vh; float: right;">
 <iframe id="ytplayer" type="text/html" width="100%" height="100%"
   {{bind-attr src=vid.fullUrl}}
   frameborder="0"/>
+</div>
 </div>
 <!-- <div id="video">
   {{vid.fullUrl}}
