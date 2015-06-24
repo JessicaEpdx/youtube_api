@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
     var model = this.get('model');
     var index = Math.floor(Math.random()*model.length);
     this.set('currentVideo', model.objectAt(index));
-
   }.observes('model'),
 
   actions: {

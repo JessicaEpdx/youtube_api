@@ -1,3 +1,7 @@
+body  {
+  background-color: #000;
+}
+
 #overlay{
   width:100vw;
   height:100vh;
@@ -9,8 +13,9 @@
 }
 
 #next{
-  background-color:red;
-  width:25%;
+  background: url('/img/dot2.png'), url('/img/arrow.png') center no-repeat;
+  background-color:#262626;
+  width:150px;
   height:100vh;
   position: fixed;
   right: 0px;
@@ -24,8 +29,14 @@
   cursor: pointer;
 }
 
-#next:active{
-  background-color: blue;
-  opacity: 0.6;
-  cursor: pointer;
+/* The animation code */
+@keyframes example {
+    from {opacity: 0; right: -100px; }
+    to {opacity: 0.6; right: 0px;}
+}
+
+/* The element to apply the animation to */
+#next:hover {
+    animation-name: example;
+    animation-duration: .5s;
 }
