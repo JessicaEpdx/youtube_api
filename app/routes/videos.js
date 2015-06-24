@@ -7,7 +7,7 @@ export default Ember.Route.extend({
    return Ember.$.getJSON(url).then(function(responseJSON) {
      var videos = [];
      responseJSON.items.forEach(function(video) {
-        video.fullUrl = "http://www.youtube.com/embed/" + video.id.videoId + "?autoplay=1&showinfo=0&controls=0"
+        video.fullUrl = "http://www.youtube.com/embed/" + video.id.videoId + "?autoplay=1&showinfo=0&controls=0&rel=0"
         videos.push(video);
      });
      return videos;

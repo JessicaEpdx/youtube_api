@@ -31,7 +31,7 @@ body  {
 
 /* The animation code */
 @keyframes example {
-    from {opacity: 0; right: -100px; }
+    from {opacity: 0; right: -50px; }
     to {opacity: 0.6; right: 0px;}
 }
 
