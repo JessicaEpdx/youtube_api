@@ -1,13 +1,31 @@
-.next{
+#overlay{
   width:100vw;
   height:100vh;
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 10;
+  z-index: 1;
   opacity: 0;
 }
 
-.next:hover{
+#next{
+  background-color:red;
+  width:25%;
+  height:100vh;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: 2;
+  opacity: 0;
+}
+
+#next:hover{
   opacity: 0.6;
+  cursor: pointer;
+}
+
+#next:active{
+  background-color: blue;
+  opacity: 0.6;
+  cursor: pointer;
 }
