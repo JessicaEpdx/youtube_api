@@ -1,2 +1,12 @@
+{{#each vid in model}}
+<iframe id="ytplayer" type="text/html" width="640" height="390"
+  {{bind-attr src=vid.fullUrl}}
+  frameborder="0"/>
+<div id="video">
+  {{vid.fullUrl}}
+  {{vid.snippet.title}}<br>
+  {{vid.snippet.description}}
+</div>
+{{/each}}
 
-They go here!
+Hey
