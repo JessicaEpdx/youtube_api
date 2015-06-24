@@ -10,8 +10,7 @@ export default Ember.Route.extend({
         video.fullUrl = "http://www.youtube.com/embed/" + video.id.videoId + "?autoplay=0&showinfo=0&controls=0"
         videos.push(video);
      });
-     var index = Math.floor((Math.random()*videos.length))
-     return videos[index];
+     return videos;
    });
   }
 });
