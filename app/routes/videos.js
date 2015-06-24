@@ -7,10 +7,11 @@ export default Ember.Route.extend({
    return Ember.$.getJSON(url).then(function(responseJSON) {
      var videos = [];
      responseJSON.items.forEach(function(video) {
-        video.fullUrl = "http://www.youtube.com/embed/" + video.id.videoId
+        video.fullUrl = "http://www.youtube.com/embed/" + video.id.videoId + "?autoplay=0&showinfo=0&controls=0"
         videos.push(video);
      });
-     return videos;
+     var index = Math.floor((Math.random()*videos.length))
+     return videos[index];
    });
   }
 });

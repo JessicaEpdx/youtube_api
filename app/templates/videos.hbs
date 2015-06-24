@@ -1,12 +1,16 @@
-{{#each vid in model}}
-<iframe id="ytplayer" type="text/html" width="640" height="390"
-  {{bind-attr src=vid.fullUrl}}
-  frameborder="0"/>
-<div id="video">
-  {{vid.fullUrl}}
-  {{vid.snippet.title}}<br>
-  {{vid.snippet.description}}
+
+<div class="shown-vid">
 </div>
-{{/each}}
+
+<div style="width: 100vw; height:100vh">
+  <iframe allowfullscreen="allowfullscreen" id="ytplayer" type="text/html" width="100%" height="100%"
+    {{bind-attr src=model.fullUrl}}
+    frameborder="0"/>
+</div>
+<div id="video">
+  {{model.fullUrl}}
+  {{model.snippet.title}}<br>
+  {{model.snippet.description}}
+</div>
 
 Hey
