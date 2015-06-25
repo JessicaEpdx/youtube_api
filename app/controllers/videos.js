@@ -15,6 +15,7 @@ function relatedVideosURL(videoId) {
 }
 
 function findNextVideo(videoId, steps, visitedVideoIds, controller) {
+  // debugger;
   visitedVideoIds.push(videoId);
   if (steps === 0) {
 
@@ -23,6 +24,7 @@ function findNextVideo(videoId, steps, visitedVideoIds, controller) {
       id: videoId,
       fullUrl: "http://www.youtube.com/embed/" + videoId + "?autoplay=1&showinfo=0&controls=0&rel=0",
       externalUrl: "https://www.youtube.com/watch?v=" + videoId,
+      thumbnail   : "https://i.ytimg.com/vi/" + videoId + "/default.jpg"
     }
     controller.get('model.watchedVideos').pushObject(newVideo);
     return;
@@ -77,16 +79,18 @@ export default Ember.Controller.extend({
 
   watchedVideoIds: function() {
     return this.get('model.watchedVideos').map(function(watchedVideo) { return watchedVideo.id; });
-  }.property('model.watchedVideos'),
+  }.property('model.watchedVideos.[]'),
 
   currentVideo: function() {
     return this.get('model.watchedVideos').get('lastObject');
-  }.property('model.watchedVideos'),
+  }.property('model.watchedVideos.[]'),
 
   actions: {
-    nextVideo: function(model) {
+    nextVideo: function() {
       var currentVideo = this.get('currentVideo');
-      findNextVideo(currentVideo.id, 1, this.get('watchedVideoIds'), this);
+      console.log(currentVideo.id)
+      var watchedVideoIds = this.get('watchedVideoIds');
+      findNextVideo(currentVideo.id, 10, watchedVideoIds, this);
     }
   }
 });
