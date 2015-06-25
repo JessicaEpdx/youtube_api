@@ -29,6 +29,27 @@ body  {
   cursor: pointer;
 }
 
+#previous{
+  background: url('/img/dot2.png');
+  background-color:#262626;
+  width:150px;
+  height:100vh;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  opacity: 0;
+}
+
+#previous:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.thumbnail {
+  z-index: 3;
+}
+
 /* The animation code */
 @keyframes example {
     from {opacity: 0; right: -50px; }

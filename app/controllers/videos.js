@@ -70,6 +70,7 @@ export default Ember.Controller.extend({
 
   actions: {
     nextVideo: function(model) {
+      var model = this.get('model');
       findNextVideo(this.get('currentVideo.id'), 1, [], this);
     }
   }
