@@ -90,7 +90,7 @@ export default Ember.Controller.extend({
       var currentVideo = this.get('currentVideo');
       console.log(currentVideo.id)
       var watchedVideoIds = this.get('watchedVideoIds');
-      findNextVideo(currentVideo.id, 10, watchedVideoIds, this);
+      findNextVideo(currentVideo.id, 2, watchedVideoIds, this);
     }
   }
 });
