@@ -13,8 +13,8 @@ body  {
 }
 
 #next{
-  background: url('/img/dot2.png'), url('/img/arrow.png') center no-repeat;
-  background-color:#262626;
+  background: url('/img/arrow.png') center no-repeat, url('/img/dot2.png');
+  background-color:rgba(38, 38, 38, 0);
   width:150px;
   height:100vh;
   position: fixed;
@@ -25,39 +25,50 @@ body  {
 }
 
 #next:hover{
-  opacity: 0.6;
+  opacity: 1;
+  background-color: rgba(38, 38, 38, 0.6);
   cursor: pointer;
+  animation-name: next;
+  animation-duration: .5s;
+}
+
+@keyframes next {
+  from {background-color: rgba(38, 38, 38, 0); opacity: 0; right: -50px; }
+  to {background-color: rgba(38, 38, 38, 0.6); opacity: 1; right: 0px;}
 }
 
 #previous{
   background: url('/img/dot2.png');
-  background-color:#262626;
+  background-color: rgba(38, 38, 38, 0);
   width:150px;
   height:100vh;
-  position: fixed;
+  position: absolute;
   left: 0px;
   top: 0px;
   z-index: 2;
   opacity: 0;
+  text-align:center;
 }
 
 #previous:hover{
-  opacity: 0.6;
+  background-color: rgba(38, 38, 38, 0.6);
+  opacity: 1;
   cursor: pointer;
+  animation-name: previous;
+  animation-duration: .5s;
+}
+
+@keyframes previous {
+    from {background-color: rgba(38, 38, 38, 0); opacity: 0; left: -50px; }
+    to {background-color: rgba(38, 38, 38, 0.6); opacity: 1; left: 0px;}
 }
 
 .thumbnail {
+  margin-bottom:6px;
   z-index: 3;
 }
 
-/* The animation code */
-@keyframes example {
-    from {opacity: 0; right: -50px; }
-    to {opacity: 0.6; right: 0px;}
-}
-
-/* The element to apply the animation to */
-#next:hover {
-    animation-name: example;
-    animation-duration: .5s;
+.video{
+  position:fixed;
+  bottom:0;
 }
