@@ -13,7 +13,7 @@ export default Ember.Route.extend({
   }
 
   var viewCountThreshold = 500;
-  var keywordBlacklist = ["pronounce", "say", "vocabulary", "spelling"];
+  var keywordBlacklist = ["pronounce", "say", "vocabulary", "spelling", "mean", "definition", "slideshow", "translation"];
 
   function randomWord() {
     var requestStr = "http://randomword.setgetgo.com/get.php";
@@ -24,11 +24,12 @@ export default Ember.Route.extend({
     }).then(function(data) {return randomVideo(data)});
   }
 
-  function isBlacklisted(title) {
+  function isBlacklisted(title, description) {
     // debugger;
     title = title.toLowerCase();
+    description = description.toLowerCase();
     for(var i = 0; i < keywordBlacklist.length; i++) {
-      if(title.includes(keywordBlacklist[i])) {
+      if(title.includes(keywordBlacklist[i]) || description.includes(keywordBlacklist[i])) {
         return true;
       }
     }
@@ -49,8 +50,8 @@ export default Ember.Route.extend({
            if(responseJSON2.items[0].statistics.viewCount > viewCountThreshold) {
              console.log("View count too high. Restarting search.");
              return randomWord();
-           } else if(isBlacklisted(responseJSON2.items[0].snippet.title)) {
-             console.log("Title:" + responseJSON2.items[0].snippet.title + " contains blacklisted word. Restarting search.")
+           } else if(isBlacklisted(responseJSON2.items[0].snippet.title, responseJSON2.items[0].snippet.description)) {
+             console.log("Title:" + responseJSON2.items[0].snippet.title + " Description: " + responseJSON2.items[0].snippet.description + " contains blacklisted word. Restarting search.")
              return randomWord();
            } else {
              var videoId = responseJSON2.items[0].id;
