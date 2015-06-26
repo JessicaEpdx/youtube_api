@@ -86,6 +86,12 @@ export default Ember.Controller.extend({
       randomWord().then(function(video) {
         controller.get('model.watchedVideos').pushObject(video);
       });
+    },
+    ytEnded: function() {
+      var controller = this;
+      randomWord().then(function(video) {
+        controller.get('model.watchedVideos').pushObject(video);
+      });
     }
   }
 });

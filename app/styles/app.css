@@ -12,6 +12,15 @@ body  {
   opacity: 0;
 }
 
+#EmberYoutube-player{
+  width: 100vw;
+  height: 100vh;
+  position:fixed;
+  bottom:0;
+  left: 0;
+  z-index: 0;
+}
+
 #next{
   background: url('/img/arrow.png') center no-repeat, url('/img/dot2.png');
   background-color:rgba(38, 38, 38, 0);
@@ -82,13 +91,6 @@ body  {
   to {
     -webkit-transform: rotate(360deg);
   }
-}
-
-.video{
-  position:fixed;
-  bottom:0;
-  left: 0;
-  z-index: 0;
 }
 
 #fade-out-title {
