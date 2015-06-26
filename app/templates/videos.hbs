@@ -26,10 +26,15 @@
 </div>
 <div id="next" {{action 'nextVideo'}}>
 </div>
-<div id="previous">
-  <div class="row">
+<div id="currentThumb" style="text-align: center;">
     <a {{bind-attr href=currentVideo.externalUrl}} target="_blank"><img class="thumbnail" {{bind-attr src=currentVideo.thumbnail}}></a>
-  </div>
+    <br><img {{action 'showPrevious'}} id="previous-arrow" style="width: 60px;"src="/img/down.png"/>
+</div>
+
+<div class="previous">
+  {{#each model.watchedVideos as |video|}}
+    <a {{bind-attr href=video.externalUrl}} target="_blank"><img class="thumbnail" {{bind-attr src=video.thumbnail}}></a>
+  {{/each}}
 </div>
 
 <div id="initial-logo">

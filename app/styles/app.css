@@ -43,7 +43,7 @@ body  {
   to {opacity: 1;}
 }
 
-#previous{
+#currentThumb{
   background-color: rgba(38, 38, 38, 0);
   position: absolute;
   top: 2vh;
@@ -53,16 +53,28 @@ body  {
   text-align:center;
 }
 
-#previous:hover{
+#currentThumb:hover{
   opacity: 1;
   cursor: pointer;
-  animation-name: previous;
+  animation-name: currentThumb;
   animation-duration: .5s;
 }
 
-@keyframes previous {
+@keyframes currentThumb {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+#previous{
+
+}
+
+#currentThumb > #previous-arrow{
+  opacity: 0;
+}
+
+#currentThumb > #previous-arrow:hover{
+  opacity: 1;
 }
 
 .thumbnail {
@@ -165,7 +177,6 @@ body  {
 }
 
 .word:hover{
-  cursor: pointer;
   opacity: 1;
   animation-name: word-show;
   animation-duration: 2s;
