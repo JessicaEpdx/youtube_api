@@ -22,45 +22,38 @@ body  {
 }
 
 #next{
-  background: url('/img/arrow.png') center no-repeat, url('/img/dot2.png');
-  background-color:rgba(38, 38, 38, 0);
-  width:150px;
-  height:100vh;
+  background: url('/img/down.png') center no-repeat;
+  width:100vw;
+  height:100px;
   position: fixed;
-  right: 0px;
-  top: 0px;
+  bottom: 0px;
   z-index: 2;
-  opacity: 0;
+  opacity: 0.3;
 }
 
 #next:hover{
   opacity: 1;
-  background-color: rgba(38, 38, 38, 0.6);
   cursor: pointer;
   animation-name: next;
-  animation-duration: .5s;
+  animation-duration: 2s;
 }
 
 @keyframes next {
-  from {background-color: rgba(38, 38, 38, 0); opacity: 0; right: -50px; }
-  to {background-color: rgba(38, 38, 38, 0.6); opacity: 1; right: 0px;}
+  from {opacity: 0.3;}
+  to {opacity: 1;}
 }
 
 #previous{
-  background: url('/img/dot2.png');
   background-color: rgba(38, 38, 38, 0);
-  width:150px;
-  height:100vh;
   position: absolute;
-  left: 0px;
-  top: 0px;
+  top: 2vh;
+  left: 2vw;
   z-index: 2;
-  opacity: 0;
+  opacity: 0.3;
   text-align:center;
 }
 
 #previous:hover{
-  background-color: rgba(38, 38, 38, 0.6);
   opacity: 1;
   cursor: pointer;
   animation-name: previous;
@@ -68,8 +61,8 @@ body  {
 }
 
 @keyframes previous {
-    from {background-color: rgba(38, 38, 38, 0); opacity: 0; left: -50px; }
-    to {background-color: rgba(38, 38, 38, 0.6); opacity: 1; left: 0px;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .thumbnail {
@@ -79,17 +72,18 @@ body  {
 
 .thumbnail:hover{
   -webkit-animation-name: rotate;
-  -webkit-animation-duration: 0.2s;
+  -webkit-animation-duration: .2s;
+  -webkit-animation-direction: alternate;
   -webkit-animation-iteration-count:  infinite;
   -webkit-animation-timing-function: linear;
 }
 
 @-webkit-keyframes rotate {
   from {
-    -webkit-transform: rotate(0deg);
+    -webkit-transform: rotate(-5deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
+    -webkit-transform: rotate(5deg);
   }
 }
 
@@ -162,24 +156,22 @@ body  {
 .word{
   z-index:7;
   position:fixed;
-  top:0;
-  left:40vw;
-  width:200px;
-  height: 100px;
+  top:2vh;
+  right:2vw;
   color:#ffffff;
   font-family: 'Inknut Antiqua', serif;
-  font-size:40px;
-  opacity:0;
+  font-size:30px;
+  opacity:0.3;
 }
 
 .word:hover{
   cursor: pointer;
-  opacity: 0;
+  opacity: 1;
   animation-name: word-show;
   animation-duration: 2s;
 }
 
 @keyframes word-show {
-  from {opacity: 0;}
-  to {opacity: .3;}
+  from {opacity: 0.3;}
+  to {opacity: 1;}
 }

@@ -27,9 +27,9 @@
 <div id="next" {{action 'nextVideo'}}>
 </div>
 <div id="previous">
-  {{#each model.watchedVideos as |video|}}
-    <a {{bind-attr href=video.externalUrl}} target="_blank"><img class="thumbnail" {{bind-attr src=video.thumbnail}}></a>
-  {{/each}}
+  <div class="row">
+    <a {{bind-attr href=currentVideo.externalUrl}} target="_blank"><img class="thumbnail" {{bind-attr src=currentVideo.thumbnail}}></a>
+  </div>
 </div>
 
 <div id="initial-logo">
