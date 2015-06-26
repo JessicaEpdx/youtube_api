@@ -27,6 +27,7 @@ function findNextVideo(videoId, steps, visitedVideoIds, controller) {
       thumbnail   : "https://i.ytimg.com/vi/" + videoId + "/default.jpg"
     }
     controller.get('model.watchedVideos').pushObject(newVideo);
+
     return;
   }
 
@@ -69,11 +70,9 @@ function leastViewedRelatedVideo(videos, alreadyVisitedIds) {
   return leastViewed;
 }
 
-
 export default Ember.Controller.extend({
   setup: function() {
     var model = this.get('model');
-    // this.set('currentVideo', model.startVideo);
     this.get('model.watchedVideos').pushObject(model.startVideo);
   }.observes('model'),
 
@@ -91,6 +90,7 @@ export default Ember.Controller.extend({
       console.log(currentVideo.id)
       var watchedVideoIds = this.get('watchedVideoIds');
       findNextVideo(currentVideo.id, 2, watchedVideoIds, this);
+      player.loadVideoById(currentVideo.id);
     }
   }
 });
