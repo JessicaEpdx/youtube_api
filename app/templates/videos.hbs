@@ -1,11 +1,27 @@
 <div class="word">
   {{currentVideo.word}}
 </div>
-<div class="video" style="width: 100vw; height:100vh">
-  <iframe allowfullscreen="allowfullscreen" id="ytplayer" type="text/html" width="100%" height="100%"
-    {{bind-attr src=currentVideo.fullUrl}}
-    frameborder="0"/>
-</div>
+
+<!-- youtube player -->
+{{ember-youtube
+    ytid=currentVideo.id
+    autoplay=true
+    volume=100
+
+    showControls=false
+    showTime=false
+    showProgress=false
+    showDebug=false
+
+    delegate=controller
+    delegate-as="myPlayer"
+
+    playing="ytPlaying"
+    paused="ytPaused"
+    ended="ytEnded"
+    buffering="ytBuffering"}}
+<!-- player end -->
+
 <div id="overlay">
 </div>
 <div id="next" {{action 'nextVideo'}}>
