@@ -1,3 +1,7 @@
+<div class="word">
+  {{currentVideo.word}}
+</div>
+
 <!-- youtube player -->
 {{ember-youtube
     ytid=currentVideo.id
@@ -17,6 +21,7 @@
     ended="ytEnded"
     buffering="ytBuffering"}}
 <!-- player end -->
+
 <div id="overlay">
 </div>
 <div id="next" {{action 'nextVideo'}}>

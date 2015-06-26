@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
 // seed generating stuff
-function buildVideo(videoId, channelId) {
+function buildVideo(videoId, word) {
   return {
     id          : videoId,
     fullUrl     : "http://www.youtube.com/embed/" + videoId + "?autoplay=1&showinfo=0&controls=0&rel=0",
     externalUrl : "https://www.youtube.com/watch?v=" + videoId,
     thumbnail   : "https://i.ytimg.com/vi/" + videoId + "/default.jpg",
-    channelId   : channelId
+    word        : word
   }
 }
 
@@ -55,7 +55,7 @@ function randomVideo(data) {
          } else {
            var videoId = responseJSON2.items[0].id;
            var channelId = responseJSON2.items[0].snippet.channelId;
-           return buildVideo(videoId, channelId);
+           return buildVideo(videoId, data.Word);
          }
        });
      }

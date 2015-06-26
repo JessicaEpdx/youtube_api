@@ -3,12 +3,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
  model: function() {
-  function buildVideo(videoId) {
+  function buildVideo(videoId, word) {
     return {
       id          : videoId,
       fullUrl     : "http://www.youtube.com/embed/" + videoId + "?autoplay=1&showinfo=0&controls=0&rel=0",
       externalUrl : "https://www.youtube.com/watch?v=" + videoId,
-      thumbnail   : "https://i.ytimg.com/vi/" + videoId + "/default.jpg"
+      thumbnail   : "https://i.ytimg.com/vi/" + videoId + "/default.jpg",
+      word        : word
     }
   }
 
@@ -55,7 +56,7 @@ export default Ember.Route.extend({
              return randomWord();
            } else {
              var videoId = responseJSON2.items[0].id;
-             return buildVideo(videoId);
+             return buildVideo(videoId, data.Word);
            }
          });
        }
