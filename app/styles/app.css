@@ -93,42 +93,65 @@ body  {
   }
 }
 
-#fade-out-title {
+#logo{
   position:fixed;
   top:0;
   width:100vw;
   height:100vh;
+  font-size: 10vh;
   text-align: center;
   vertical-align: middle;
-  line-height: 80vh;
-  background: rgba(0, 0, 0, 0);
+  animation-name:logo;
+  animation-delay: 2s;
+  animation-duration: 4s;
   color: rgba(255, 255, 255, 0);
-  font-size: 10vh;
-  animation-name:fade-title;
-  animation-duration: 2s;
-}
-
-#fade-out-logo {
-  position:fixed;
-  width:100vw;
-  text-align: center;
-  bottom: 0;
-}
-
-#page-logo{
-  animation-name:fade-logo;
-  animation-duration: 3s;
   opacity: 0;
 }
 
-@keyframes fade-title {
-  from {background: rgba(0, 0, 0, 1); color: rgba(255, 255, 255, 1); font-size: 10vh; line-height: 80vh;}
-  to {background: rgba(0, 0, 0, 0); color: rgba(255, 255, 255, 0); font-size: 20vh; line-height: 20vh;}
+#page-logo{
+  height: 0;
+  animation-name:logo-image;
+  animation-delay: 2s;
+  animation-duration: 4s;
 }
 
-@keyframes fade-logo {
-  from {opacity: 1; height: 10vh;}
-  to {opacity: 0; height: 50vh;}
+#initial-logo {
+  position:fixed;
+  top:0;
+  width:100vw;
+  height:100vh;
+  font-size: 10vh;
+  text-align: center;
+  vertical-align: middle;
+  animation-name:initial-logo;
+  animation-duration: 2s;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+#page-logo-initial {
+  height: 30vh;
+  color: rgba(255, 255, 255, 0);
+  animation-name:logo-image-initial;
+  animation-duration: 2s;
+}
+
+@keyframes logo {
+  from { -webkit-transform: rotate(0deg); color: rgba(255, 255, 255, 1); opacity: 1; font-size: 10vh;}
+  to {-webkit-transform: rotate(1080deg); color: rgba(255, 255, 255, 0); opacity: 0; font-size: 2px;}
+}
+@keyframes initial-logo {
+  from {background-color: rgba(0, 0, 0, 1); color: rgba(255, 255, 255, 1); opacity: 1; font-size: 10vh;}
+  to {background-color: rgba(0, 0, 0, 0); color: rgba(255, 255, 255, 1); opacity: 1; font-size: 10vh;}
+}
+@keyframes logo-image {
+  from {height: 30vh;}
+  to {height: 2vh;}
+}
+@keyframes logo-image-initial {
+  from {color: rgba(255, 255, 255, 1);}
+  to {color: rgba(255, 255, 255, 1);}
 }
 
 
@@ -147,7 +170,6 @@ body  {
   font-family: 'Inknut Antiqua', serif;
   font-size:40px;
   opacity:0;
-  padding-top:0;
 }
 
 .word:hover{
